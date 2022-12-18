@@ -253,6 +253,35 @@ void reverseList(SinglyLinkedList* singlyLinkedList) {
 }
 
 /**
+ * @brief Reverse the list recursively
+ * 
+ * @param SinglyLinkedList* singlyLinkedList  
+ */
+void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    singlyLinkedList->tail = singlyLinkedList->head;
+    singlyLinkedList->head = reverseListRecursiveHelper(singlyLinkedList->head);
+}
+
+/**
+ * @brief Helper function for reverseListRecursive
+ * 
+ * @param Node* head  
+ */
+Node* reverseListRecursiveHelper(Node* head) {
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    Node *newHead = reverseListRecursiveHelper(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return newHead;
+}
+
+/**
  * @brief Free the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
