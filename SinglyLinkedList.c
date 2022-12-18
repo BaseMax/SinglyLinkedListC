@@ -52,10 +52,10 @@ SinglyLinkedList *createSinglyLinkedList() {
 /**
  * @brief Insert a new node at the end of the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  * @param data 
  */
-void insertAtEnd(SinglyLinkedList *singlyLinkedList, int data) {
+void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
     Node *newNode = createNode(data);
     if (singlyLinkedList->head == NULL) {
         singlyLinkedList->head = newNode;
@@ -70,10 +70,10 @@ void insertAtEnd(SinglyLinkedList *singlyLinkedList, int data) {
 /**
  * @brief Insert a new node at the beginning of the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  * @param data 
  */
-void insertAtBeginning(SinglyLinkedList *singlyLinkedList, int data) {
+void insertAtBeginning(SinglyLinkedList* singlyLinkedList, int data) {
     Node *newNode = createNode(data);
     if (singlyLinkedList->head == NULL) {
         singlyLinkedList->head = newNode;
@@ -88,11 +88,11 @@ void insertAtBeginning(SinglyLinkedList *singlyLinkedList, int data) {
 /**
  * @brief Insert a new node at the given index
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  * @param data 
  * @param index 
  */
-void insertAtIndex(SinglyLinkedList *singlyLinkedList, int data, int index) {
+void insertAtIndex(SinglyLinkedList* singlyLinkedList, int data, int index) {
     if (index < 0 || index > singlyLinkedList->size) {
         printf("Index out of range: %d\n", index);
         return;
@@ -122,9 +122,9 @@ void insertAtIndex(SinglyLinkedList *singlyLinkedList, int data, int index) {
 /**
  * @brief Delete the first node of the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  */
-void deleteFirstNode(SinglyLinkedList *singlyLinkedList) {
+void deleteFirstNode(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
         printf("List is empty\n");
         return;
@@ -138,9 +138,9 @@ void deleteFirstNode(SinglyLinkedList *singlyLinkedList) {
 /**
  * @brief Delete the last node of the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  */
-void deleteLastNode(SinglyLinkedList *singlyLinkedList) {
+void deleteLastNode(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
         printf("List is empty\n");
         return;
@@ -158,10 +158,10 @@ void deleteLastNode(SinglyLinkedList *singlyLinkedList) {
 /**
  * @brief Delete the node at the given index
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  * @param index 
  */
-void deleteAtIndex(SinglyLinkedList *singlyLinkedList, int index) {
+void deleteAtIndex(SinglyLinkedList* singlyLinkedList, int index) {
     if (index < 0 || index >= singlyLinkedList->size) {
         printf("Index out of range: %d\n", index);
         return;
@@ -190,9 +190,9 @@ void deleteAtIndex(SinglyLinkedList *singlyLinkedList, int index) {
 /**
  * @brief Print the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  */
-void printList(SinglyLinkedList *singlyLinkedList) {
+void printList(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
         printf("List is empty\n");
         return;
@@ -208,9 +208,9 @@ void printList(SinglyLinkedList *singlyLinkedList) {
 /**
  * @brief Print the list in reverse order
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  */
-void printListReverse(SinglyLinkedList *singlyLinkedList) {
+void printListReverse(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
         printf("List is empty\n");
         return;
@@ -232,9 +232,9 @@ void printListReverse(SinglyLinkedList *singlyLinkedList) {
 /**
  * @brief Reverse the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  */
-void reverseList(SinglyLinkedList *singlyLinkedList) {
+void reverseList(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
         printf("List is empty\n");
         return;
@@ -255,9 +255,9 @@ void reverseList(SinglyLinkedList *singlyLinkedList) {
 /**
  * @brief Free the list
  * 
- * @param singlyLinkedList 
+ * @param SinglyLinkedList* singlyLinkedList  
  */
-void freeList(SinglyLinkedList *singlyLinkedList) {
+void freeList(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
         printf("List is empty\n");
         return;
@@ -275,7 +275,7 @@ void freeList(SinglyLinkedList *singlyLinkedList) {
 
 int main() {
     // Create a new list
-    SinglyLinkedList *singlyLinkedList = createSinglyLinkedList();
+    SinglyLinkedList* singlyLinkedList = createSinglyLinkedList();
 
     // Insert at the beginning
     insertAtBeginning(singlyLinkedList, 1);
