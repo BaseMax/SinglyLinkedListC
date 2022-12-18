@@ -161,3 +161,158 @@ void deleteLastNode(SinglyLinkedList *singlyLinkedList) {
  * @param singlyLinkedList 
  * @param index 
  */
+void deleteAtIndex(SinglyLinkedList *singlyLinkedList, int index) {
+    if (index < 0 || index >= singlyLinkedList->size) {
+        printf("Index out of range: %d\\n", index);
+        return;
+    }
+    // If index is 0, delete the first node
+    if (index == 0) {
+        deleteFirstNode(singlyLinkedList);
+        return;
+    }
+    // If index is equal to the size of the list, delete the last node
+    else if (index == singlyLinkedList->size - 1) {
+        deleteLastNode(singlyLinkedList);
+        return;
+    }
+    // Otherwise, delete the node at the given index
+    Node *temp = singlyLinkedList->head;
+    for (int i = 0; i < index - 1; i++) {
+        temp = temp->next;
+    }
+    Node *toDelete = temp->next;
+    temp->next = temp->next->next;
+    free(toDelete);
+    singlyLinkedList->size--;
+}
+
+/**
+ * @brief Print the list
+ * 
+ * @param singlyLinkedList 
+ */
+void printList(SinglyLinkedList *singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\\n");
+        return;
+    }
+    Node *temp = singlyLinkedList->head;
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\\n");
+}
+
+/**
+ * @brief Print the list in reverse order
+ * 
+ * @param singlyLinkedList 
+ */
+void printListReverse(SinglyLinkedList *singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\\n");
+        return;
+    }
+    Node *temp = singlyLinkedList->head;
+    int *arr = (int *) malloc(singlyLinkedList->size * sizeof(int));
+    int i = 0;
+    while (temp != NULL) {
+        arr[i++] = temp->data;
+        temp = temp->next;
+    }
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d ", arr[j]);
+    }
+    printf("\\n");
+    free(arr);
+}
+
+/**
+ * @brief Reverse the list
+ * 
+ * @param singlyLinkedList 
+ */
+void reverseList(SinglyLinkedList *singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\\n");
+        return;
+    }
+    Node *prev = NULL;
+    Node *current = singlyLinkedList->head;
+    Node *next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    singlyLinkedList->tail = singlyLinkedList->head;
+    singlyLinkedList->head = prev;
+}
+
+/**
+ * @brief Free the list
+ * 
+ * @param singlyLinkedList 
+ */
+void freeList(SinglyLinkedList *singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\\n");
+        return;
+    }
+    Node *temp = singlyLinkedList->head;
+    while (temp != NULL) {
+        Node *toDelete = temp;
+        temp = temp->next;
+        free(toDelete);
+    }
+    singlyLinkedList->head = NULL;
+    singlyLinkedList->tail = NULL;
+    singlyLinkedList->size = 0;
+}
+
+int main() {
+    // Create a new list
+    SinglyLinkedList *singlyLinkedList = createList();
+
+    // Insert at the beginning
+    insertAtBeginning(singlyLinkedList, 1);
+    insertAtBeginning(singlyLinkedList, 2);
+    insertAtBeginning(singlyLinkedList, 3);
+    insertAtBeginning(singlyLinkedList, 4);
+    insertAtBeginning(singlyLinkedList, 5);
+
+    // Print the list
+    printList(singlyLinkedList);
+
+    // Insert at the end
+    insertAtEnd(singlyLinkedList, 6);
+    insertAtEnd(singlyLinkedList, 7);
+    insertAtEnd(singlyLinkedList, 8);
+
+    // Print the list
+    printList(singlyLinkedList);
+
+    // Insert at the given index
+    insertAtIndex(singlyLinkedList, 9, 0);
+    insertAtIndex(singlyLinkedList, 10, 5);
+    insertAtIndex(singlyLinkedList, 11, 9);
+    
+    // Print the list
+    printList(singlyLinkedList);
+
+    // Delete the first node
+    deleteFirstNode(singlyLinkedList);
+
+    // Print the list
+    printList(singlyLinkedList);
+
+    // Delete the last node
+    deleteLastNode(singlyLinkedList);
+
+    // Print the list
+    printList(singlyLinkedList);
+    
+}
