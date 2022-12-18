@@ -1,12 +1,12 @@
 /**
- * 
+ *
  * @file SinglyLinkedList.c
  * @author Max Base (maxbasecode@gmail.com)
  * @brief Singly Linked List Implementation in C
  * @version 0.1
  * @date 2022-12-18
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include <stdio.h>
@@ -25,9 +25,9 @@ typedef struct SinglyLinkedList {
 
 /**
  * @brief Create a new node
- * 
+ *
  * @param data
- * @return Node* 
+ * @return Node*
  */
 Node *createNode(int data) {
     Node *newNode = (Node *) malloc(sizeof(Node));
@@ -38,10 +38,10 @@ Node *createNode(int data) {
 
 /**
  * @brief Create a new singly linked list
- * 
+ *
  * @param void
- * 
- * @return SinglyLinkedList* 
+ *
+ * @return SinglyLinkedList*
  */
 SinglyLinkedList *createSinglyLinkedList() {
     SinglyLinkedList *newSinglyLinkedList = (SinglyLinkedList *) malloc(sizeof(SinglyLinkedList));
@@ -53,10 +53,10 @@ SinglyLinkedList *createSinglyLinkedList() {
 
 /**
  * @brief Insert a new node at the end of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
  * @param int data
- * 
+ *
  * @return void
  */
 void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
@@ -73,10 +73,10 @@ void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
 
 /**
  * @brief Insert a new node at the beginning of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
  * @param int data
- * 
+ *
  * @return void
  */
 void insertAtBeginning(SinglyLinkedList* singlyLinkedList, int data) {
@@ -93,11 +93,11 @@ void insertAtBeginning(SinglyLinkedList* singlyLinkedList, int data) {
 
 /**
  * @brief Insert a new node at the given index
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
  * @param int data
  * @param int index
- * 
+ *
  * @return void
  */
 void insertAtIndex(SinglyLinkedList* singlyLinkedList, int data, int index) {
@@ -129,9 +129,9 @@ void insertAtIndex(SinglyLinkedList* singlyLinkedList, int data, int index) {
 
 /**
  * @brief Delete the first node of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
+ *
  * @return void
  */
 void deleteFirstNode(SinglyLinkedList* singlyLinkedList) {
@@ -147,9 +147,9 @@ void deleteFirstNode(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Delete the last node of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
+ *
  * @return void
  */
 void deleteLastNode(SinglyLinkedList* singlyLinkedList) {
@@ -169,10 +169,10 @@ void deleteLastNode(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Delete the node at the given index
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
  * @param int index
- * 
+ *
  * @return void
  */
 void deleteAtIndex(SinglyLinkedList* singlyLinkedList, int index) {
@@ -203,9 +203,9 @@ void deleteAtIndex(SinglyLinkedList* singlyLinkedList, int index) {
 
 /**
  * @brief Print the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
- * 
+ *
  * @return void
  */
 void printList(SinglyLinkedList* singlyLinkedList) {
@@ -223,22 +223,22 @@ void printList(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Print the list in reverse order
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
+ *
  * @note This function uses an array to store the elements of the list in reverse order
  *      and then prints the array in reverse order.
  *     This is done to avoid reversing the list.
  *    This function is not efficient as it uses extra space.
- * 
+ *
  * @note To reverse the list, we can use recursion to print the list in reverse order.
  *    This function is efficient as it does not use extra space.
  *   But it is not tail recursive, so it can cause stack overflow.
- * 
+ *
  * @note To reverse the list, we can also use a stack to store the elements of the list.
  *   This function is efficient as it does not use extra space.
  * But it is not tail recursive, so it can cause stack overflow.
- * 
+ *
  */
 void printListReverse(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -261,9 +261,9 @@ void printListReverse(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Reverse the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
+ *
  * @return void
  */
 void reverseList(SinglyLinkedList* singlyLinkedList) {
@@ -286,9 +286,9 @@ void reverseList(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Reverse the list recursively
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
+ *
  * @return void
  */
 void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
@@ -302,9 +302,9 @@ void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Helper function for reverseListRecursive
- * 
+ *
  * @param Node* head  
- * 
+ *
  * @return Node*
  */
 Node* reverseListRecursiveHelper(Node* head) {
@@ -319,10 +319,10 @@ Node* reverseListRecursiveHelper(Node* head) {
 
 /**
  * @brief Find the middle node of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
- * @return Node* 
+ *
+ * @return Node*
  */
 Node* findMiddleNode(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -340,10 +340,10 @@ Node* findMiddleNode(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Find the middle node of the list recursively
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
- * 
- * @return Node* 
+ *
+ * @return Node*
  */
 Node* findMiddleNodeRecursive(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -357,11 +357,11 @@ Node* findMiddleNodeRecursive(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Helper function for findMiddleNodeRecursive
- * 
+ *
  * @param Node* slow
  * @param Node* fast
- * 
- * @return Node* 
+ *
+ * @return Node*
  */
 Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
     if (fast == NULL || fast->next == NULL) {
@@ -372,9 +372,9 @@ Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
 
 /**
  * @brief Free the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList  
- * 
+ *
  * @return void
  */
 void freeList(SinglyLinkedList* singlyLinkedList) {
@@ -395,10 +395,10 @@ void freeList(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Main entry point
- * 
+ *
  * @param int argc
  * @param char** argv
- * 
+ *
  * @return int 
  */
 int main(int argc, char** argv) {
