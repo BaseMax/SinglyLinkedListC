@@ -94,7 +94,7 @@ void insertAtBeginning(SinglyLinkedList *singlyLinkedList, int data) {
  */
 void insertAtIndex(SinglyLinkedList *singlyLinkedList, int data, int index) {
     if (index < 0 || index > singlyLinkedList->size) {
-        printf("Index out of range: %d\\n", index);
+        printf("Index out of range: %d\n", index);
         return;
     }
 
@@ -126,7 +126,7 @@ void insertAtIndex(SinglyLinkedList *singlyLinkedList, int data, int index) {
  */
 void deleteFirstNode(SinglyLinkedList *singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
-        printf("List is empty\\n");
+        printf("List is empty\n");
         return;
     }
     Node *temp = singlyLinkedList->head;
@@ -142,7 +142,7 @@ void deleteFirstNode(SinglyLinkedList *singlyLinkedList) {
  */
 void deleteLastNode(SinglyLinkedList *singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
-        printf("List is empty\\n");
+        printf("List is empty\n");
         return;
     }
     Node *temp = singlyLinkedList->head;
@@ -163,7 +163,7 @@ void deleteLastNode(SinglyLinkedList *singlyLinkedList) {
  */
 void deleteAtIndex(SinglyLinkedList *singlyLinkedList, int index) {
     if (index < 0 || index >= singlyLinkedList->size) {
-        printf("Index out of range: %d\\n", index);
+        printf("Index out of range: %d\n", index);
         return;
     }
     // If index is 0, delete the first node
@@ -194,7 +194,7 @@ void deleteAtIndex(SinglyLinkedList *singlyLinkedList, int index) {
  */
 void printList(SinglyLinkedList *singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
-        printf("List is empty\\n");
+        printf("List is empty\n");
         return;
     }
     Node *temp = singlyLinkedList->head;
@@ -202,7 +202,7 @@ void printList(SinglyLinkedList *singlyLinkedList) {
         printf("%d ", temp->data);
         temp = temp->next;
     }
-    printf("\\n");
+    printf("\n");
 }
 
 /**
@@ -212,7 +212,7 @@ void printList(SinglyLinkedList *singlyLinkedList) {
  */
 void printListReverse(SinglyLinkedList *singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
-        printf("List is empty\\n");
+        printf("List is empty\n");
         return;
     }
     Node *temp = singlyLinkedList->head;
@@ -225,7 +225,7 @@ void printListReverse(SinglyLinkedList *singlyLinkedList) {
     for (int j = i - 1; j >= 0; j--) {
         printf("%d ", arr[j]);
     }
-    printf("\\n");
+    printf("\n");
     free(arr);
 }
 
@@ -236,7 +236,7 @@ void printListReverse(SinglyLinkedList *singlyLinkedList) {
  */
 void reverseList(SinglyLinkedList *singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
-        printf("List is empty\\n");
+        printf("List is empty\n");
         return;
     }
     Node *prev = NULL;
@@ -259,7 +259,7 @@ void reverseList(SinglyLinkedList *singlyLinkedList) {
  */
 void freeList(SinglyLinkedList *singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
-        printf("List is empty\\n");
+        printf("List is empty\n");
         return;
     }
     Node *temp = singlyLinkedList->head;
@@ -275,7 +275,7 @@ void freeList(SinglyLinkedList *singlyLinkedList) {
 
 int main() {
     // Create a new list
-    SinglyLinkedList *singlyLinkedList = createList();
+    SinglyLinkedList *singlyLinkedList = createSinglyLinkedList();
 
     // Insert at the beginning
     insertAtBeginning(singlyLinkedList, 1);
