@@ -314,5 +314,24 @@ int main() {
 
     // Print the list
     printList(singlyLinkedList);
-    
+
+    // Delete the node at the given index
+    deleteAtIndex(singlyLinkedList, 0);
+
+    // Print the list
+    printList(singlyLinkedList);
+
+    // Print the list in reverse order
+    printListReverse(singlyLinkedList);
+
+    // Reverse the list
+    reverseList(singlyLinkedList);
+
+    // Print the list
+    printList(singlyLinkedList);
+
+    // Free the list
+    freeList(singlyLinkedList);
+
+    return 0;
 }
