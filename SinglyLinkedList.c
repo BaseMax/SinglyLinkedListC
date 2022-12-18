@@ -39,6 +39,8 @@ Node *createNode(int data) {
 /**
  * @brief Create a new singly linked list
  * 
+ * @param void
+ * 
  * @return SinglyLinkedList* 
  */
 SinglyLinkedList *createSinglyLinkedList() {
@@ -53,7 +55,9 @@ SinglyLinkedList *createSinglyLinkedList() {
  * @brief Insert a new node at the end of the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
- * @param data 
+ * @param int data
+ * 
+ * @return void
  */
 void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
     Node *newNode = createNode(data);
@@ -71,7 +75,9 @@ void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
  * @brief Insert a new node at the beginning of the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
- * @param data 
+ * @param int data
+ * 
+ * @return void
  */
 void insertAtBeginning(SinglyLinkedList* singlyLinkedList, int data) {
     Node *newNode = createNode(data);
@@ -89,8 +95,10 @@ void insertAtBeginning(SinglyLinkedList* singlyLinkedList, int data) {
  * @brief Insert a new node at the given index
  * 
  * @param SinglyLinkedList* singlyLinkedList  
- * @param data 
- * @param index 
+ * @param int data
+ * @param int index
+ * 
+ * @return void
  */
 void insertAtIndex(SinglyLinkedList* singlyLinkedList, int data, int index) {
     if (index < 0 || index > singlyLinkedList->size) {
@@ -123,6 +131,8 @@ void insertAtIndex(SinglyLinkedList* singlyLinkedList, int data, int index) {
  * @brief Delete the first node of the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
+ * @return void
  */
 void deleteFirstNode(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -139,6 +149,8 @@ void deleteFirstNode(SinglyLinkedList* singlyLinkedList) {
  * @brief Delete the last node of the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
+ * @return void
  */
 void deleteLastNode(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -159,7 +171,9 @@ void deleteLastNode(SinglyLinkedList* singlyLinkedList) {
  * @brief Delete the node at the given index
  * 
  * @param SinglyLinkedList* singlyLinkedList  
- * @param index 
+ * @param int index
+ * 
+ * @return void
  */
 void deleteAtIndex(SinglyLinkedList* singlyLinkedList, int index) {
     if (index < 0 || index >= singlyLinkedList->size) {
@@ -190,7 +204,9 @@ void deleteAtIndex(SinglyLinkedList* singlyLinkedList, int index) {
 /**
  * @brief Print the list
  * 
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
+ * 
+ * @return void
  */
 void printList(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -209,6 +225,20 @@ void printList(SinglyLinkedList* singlyLinkedList) {
  * @brief Print the list in reverse order
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
+ * @note This function uses an array to store the elements of the list in reverse order
+ *      and then prints the array in reverse order.
+ *     This is done to avoid reversing the list.
+ *    This function is not efficient as it uses extra space.
+ * 
+ * @note To reverse the list, we can use recursion to print the list in reverse order.
+ *    This function is efficient as it does not use extra space.
+ *   But it is not tail recursive, so it can cause stack overflow.
+ * 
+ * @note To reverse the list, we can also use a stack to store the elements of the list.
+ *   This function is efficient as it does not use extra space.
+ * But it is not tail recursive, so it can cause stack overflow.
+ * 
  */
 void printListReverse(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -233,6 +263,8 @@ void printListReverse(SinglyLinkedList* singlyLinkedList) {
  * @brief Reverse the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
+ * @return void
  */
 void reverseList(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -256,6 +288,8 @@ void reverseList(SinglyLinkedList* singlyLinkedList) {
  * @brief Reverse the list recursively
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
+ * @return void
  */
 void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -270,6 +304,8 @@ void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
  * @brief Helper function for reverseListRecursive
  * 
  * @param Node* head  
+ * 
+ * @return Node*
  */
 Node* reverseListRecursiveHelper(Node* head) {
     if (head == NULL || head->next == NULL) {
@@ -285,6 +321,7 @@ Node* reverseListRecursiveHelper(Node* head) {
  * @brief Find the middle node of the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
  * @return Node* 
  */
 Node* findMiddleNode(SinglyLinkedList* singlyLinkedList) {
@@ -305,6 +342,7 @@ Node* findMiddleNode(SinglyLinkedList* singlyLinkedList) {
  * @brief Find the middle node of the list recursively
  * 
  * @param SinglyLinkedList* singlyLinkedList
+ * 
  * @return Node* 
  */
 Node* findMiddleNodeRecursive(SinglyLinkedList* singlyLinkedList) {
@@ -322,6 +360,7 @@ Node* findMiddleNodeRecursive(SinglyLinkedList* singlyLinkedList) {
  * 
  * @param Node* slow
  * @param Node* fast
+ * 
  * @return Node* 
  */
 Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
@@ -335,6 +374,8 @@ Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
  * @brief Free the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
+ * 
+ * @return void
  */
 void freeList(SinglyLinkedList* singlyLinkedList) {
     if (singlyLinkedList->head == NULL) {
@@ -352,7 +393,15 @@ void freeList(SinglyLinkedList* singlyLinkedList) {
     singlyLinkedList->size = 0;
 }
 
-int main() {
+/**
+ * @brief Main entry point
+ * 
+ * @param int argc
+ * @param char** argv
+ * 
+ * @return int 
+ */
+int main(int argc, char** argv) {
     // Create a new list
     SinglyLinkedList* singlyLinkedList = createSinglyLinkedList();
 
