@@ -282,6 +282,56 @@ Node* reverseListRecursiveHelper(Node* head) {
 }
 
 /**
+ * @brief Find the middle node of the list
+ * 
+ * @param SinglyLinkedList* singlyLinkedList  
+ * @return Node* 
+ */
+Node* findMiddleNode(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *slow = singlyLinkedList->head;
+    Node *fast = singlyLinkedList->head;
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
+}
+
+/**
+ * @brief Find the middle node of the list recursively
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * @return Node* 
+ */
+Node* findMiddleNodeRecursive(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *slow = singlyLinkedList->head;
+    Node *fast = singlyLinkedList->head;
+    return findMiddleNodeRecursiveHelper(slow, fast);
+}
+
+/**
+ * @brief Helper function for findMiddleNodeRecursive
+ * 
+ * @param Node* slow
+ * @param Node* fast
+ * @return Node* 
+ */
+Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
+    if (fast == NULL || fast->next == NULL) {
+        return slow;
+    }
+    return findMiddleNodeRecursiveHelper(slow->next, fast->next->next);
+}
+
+/**
  * @brief Free the list
  * 
  * @param SinglyLinkedList* singlyLinkedList  
