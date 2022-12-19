@@ -65,7 +65,11 @@ void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
         singlyLinkedList->head = newNode;
         singlyLinkedList->tail = newNode;
     } else {
+        // Next of new node should be NULL
+        newNode->next = NULL;
+        // Next of tail should be new node
         singlyLinkedList->tail->next = newNode;
+        // Make new node as tail
         singlyLinkedList->tail = newNode;
     }
     singlyLinkedList->size++;
