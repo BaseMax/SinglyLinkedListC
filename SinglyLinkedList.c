@@ -564,6 +564,34 @@ Node* findNthNodeFromEndRecursiveHelper(Node* temp, int n) {
 }
 
 /**
+ * @brief Remove dubplicates from the list
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * 
+ * @return void
+ */
+void removeDuplicates(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    Node *temp = singlyLinkedList->head;
+    while (temp != NULL) {
+        Node *temp2 = temp;
+        while (temp2->next != NULL) {
+            if (temp->data == temp2->next->data) {
+                Node *temp3 = temp2->next;
+                temp2->next = temp2->next->next;
+                free(temp3);
+            } else {
+                temp2 = temp2->next;
+            }
+        }
+        temp = temp->next;
+    }
+}
+
+/**
  * @brief Sort the list (ascending) using bubble sort algorithm O(n^2)
  *
  * @param SinglyLinkedList* singlyLinkedList
