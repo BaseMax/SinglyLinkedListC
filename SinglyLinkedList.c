@@ -576,6 +576,7 @@ void removeDuplicates(SinglyLinkedList* singlyLinkedList) {
         return;
     }
     Node *temp = singlyLinkedList->head;
+    // O(n^2)
     while (temp != NULL) {
         Node *temp2 = temp;
         while (temp2->next != NULL) {
