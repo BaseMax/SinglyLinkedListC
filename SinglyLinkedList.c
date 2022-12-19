@@ -371,6 +371,33 @@ Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
 }
 
 /**
+ * @brief Sort the list (ascending) using bubble sort algorithm O(n^2)
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * 
+ * @return void
+ */
+void sortList(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    Node *temp = singlyLinkedList->head;
+    while (temp != NULL) {
+        Node *temp2 = temp->next;
+        while (temp2 != NULL) {
+            if (temp->data > temp2->data) {
+                int tempData = temp->data;
+                temp->data = temp2->data;
+                temp2->data = tempData;
+            }
+            temp2 = temp2->next;
+        }
+        temp = temp->next;
+    }
+}
+
+/**
  * @brief Free the list
  *
  * @param SinglyLinkedList* singlyLinkedList  
