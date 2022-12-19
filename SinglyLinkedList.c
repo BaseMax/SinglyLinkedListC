@@ -375,6 +375,195 @@ Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
 }
 
 /**
+ * @brief Find the minimum element in the list
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * 
+ * @return Node*
+ */
+Node* findMin(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *min = singlyLinkedList->head;
+    Node *temp = singlyLinkedList->head;
+    while (temp != NULL) {
+        if (temp->data < min->data) {
+            min = temp;
+        }
+        temp = temp->next;
+    }
+    return min;
+}
+
+/**
+ * @brief Find the maximum element in the list
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * 
+ * @return Node*
+ */
+Node* findMax(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *max = singlyLinkedList->head;
+    Node *temp = singlyLinkedList->head;
+    while (temp != NULL) {
+        if (temp->data > max->data) {
+            max = temp;
+        }
+        temp = temp->next;
+    }
+    return max;
+}
+
+/**
+ * @brief Find the nth node from the end of the list
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * @param int n
+ * 
+ * @return Node*
+ */
+Node* findNthNodeFromEnd(SinglyLinkedList* singlyLinkedList, int n) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *temp = singlyLinkedList->head;
+    int length = 0;
+    while (temp != NULL) {
+        length++;
+        temp = temp->next;
+    }
+    if (n > length) {
+        printf("Invalid index\n");
+        return NULL;
+    }
+    temp = singlyLinkedList->head;
+    for (int i = 0; i < length - n; i++) {
+        temp = temp->next;
+    }
+    return temp;
+}
+
+/**
+ * @brief Find the nth node from the beginning of the list
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * @param int n
+ * 
+ * @return Node
+ */
+Node* findNthNodeFromBeginning(SinglyLinkedList* singlyLinkedList, int n) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *temp = singlyLinkedList->head;
+    int length = 0;
+    while (temp != NULL) {
+        length++;
+        temp = temp->next;
+    }
+    if (n > length) {
+        printf("Invalid index\n");
+        return NULL;
+    }
+    temp = singlyLinkedList->head;
+    for (int i = 0; i < n - 1; i++) {
+        temp = temp->next;
+    }
+    return temp;
+}
+
+/**
+ * @brief Find the nth node from the beginning of the list recursively
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * 
+ * @return Node*
+ */
+Node* findNthNodeFromBeginningRecursive(SinglyLinkedList* singlyLinkedList, int n) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *temp = singlyLinkedList->head;
+    int length = 0;
+    while (temp != NULL) {
+        length++;
+        temp = temp->next;
+    }
+    if (n > length) {
+        printf("Invalid index\n");
+        return NULL;
+    }
+    temp = singlyLinkedList->head;
+    return findNthNodeFromBeginningRecursiveHelper(temp, n);
+}
+
+/**
+ * @brief Helper function for findNthNodeFromBeginningRecursive
+ * 
+ * @param Node* temp
+ * @param int n
+ * 
+ * @return Node*
+ */
+Node* findNthNodeFromBeginningRecursiveHelper(Node* temp, int n) {
+    if (n == 1) {
+        return temp;
+    }
+    return findNthNodeFromBeginningRecursiveHelper(temp->next, n - 1);
+}
+
+/**
+ * @brief Find the nth node from the end of the list recursively
+ * 
+ * @param SinglyLinkedList* singlyLinkedList
+ * @param int n
+ * 
+ * @return Node*
+ */
+Node* findNthNodeFromEndRecursive(SinglyLinkedList* singlyLinkedList, int n) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return NULL;
+    }
+    Node *temp = singlyLinkedList->head;
+    int length = 0;
+    while (temp != NULL) {
+        length++;
+        temp = temp->next;
+    }
+    if (n > length) {
+        printf("Invalid index\n");
+        return NULL;
+    }
+    temp = singlyLinkedList->head;
+    return findNthNodeFromEndRecursiveHelper(temp, length - n);
+}
+
+/**
+ * @brief Helper function for findNthNodeFromEndRecursive
+ * 
+ * @param Node* temp
+ * @param int n
+ * 
+ * @return Node*
+ */
+Node* findNthNodeFromEndRecursiveHelper(Node* temp, int n) {
+    if (n == 0) {
+        return temp;
+    }
+    return findNthNodeFromEndRecursiveHelper(temp->next, n - 1);
+}
+
+/**
  * @brief Sort the list (ascending) using bubble sort algorithm O(n^2)
  * 
  * @param SinglyLinkedList* singlyLinkedList
