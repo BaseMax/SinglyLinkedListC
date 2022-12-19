@@ -54,7 +54,7 @@ SinglyLinkedList *createSinglyLinkedList() {
 /**
  * @brief Insert a new node at the end of the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  * @param int data
  *
  * @return void
@@ -78,7 +78,7 @@ void insertAtEnd(SinglyLinkedList* singlyLinkedList, int data) {
 /**
  * @brief Insert a new node at the beginning of the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  * @param int data
  *
  * @return void
@@ -98,7 +98,7 @@ void insertAtBeginning(SinglyLinkedList* singlyLinkedList, int data) {
 /**
  * @brief Insert a new node at the given index
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  * @param int data
  * @param int index
  *
@@ -134,7 +134,7 @@ void insertAtIndex(SinglyLinkedList* singlyLinkedList, int data, int index) {
 /**
  * @brief Delete the first node of the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @return void
  */
@@ -152,7 +152,7 @@ void deleteFirstNode(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Delete the last node of the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @return void
  */
@@ -174,7 +174,7 @@ void deleteLastNode(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Delete the node at the given index
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  * @param int index
  *
  * @return void
@@ -228,7 +228,7 @@ void printList(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Print the list in reverse order
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @note This function uses an array to store the elements of the list in reverse order
  *      and then prints the array in reverse order.
@@ -266,7 +266,7 @@ void printListReverse(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Reverse the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @return void
  */
@@ -291,7 +291,7 @@ void reverseList(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Reverse the list recursively
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @return void
  */
@@ -307,7 +307,7 @@ void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Helper function for reverseListRecursive
  *
- * @param Node* head  
+ * @param Node* head
  *
  * @return Node*
  */
@@ -324,7 +324,7 @@ Node* reverseListRecursiveHelper(Node* head) {
 /**
  * @brief Find the middle node of the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @return Node*
  */
@@ -376,9 +376,9 @@ Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
 
 /**
  * @brief Find the minimum element in the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
- * 
+ *
  * @return Node*
  */
 Node* findMin(SinglyLinkedList* singlyLinkedList) {
@@ -399,9 +399,9 @@ Node* findMin(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Find the maximum element in the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
- * 
+ *
  * @return Node*
  */
 Node* findMax(SinglyLinkedList* singlyLinkedList) {
@@ -422,10 +422,10 @@ Node* findMax(SinglyLinkedList* singlyLinkedList) {
 
 /**
  * @brief Find the nth node from the end of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
  * @param int n
- * 
+ *
  * @return Node*
  */
 Node* findNthNodeFromEnd(SinglyLinkedList* singlyLinkedList, int n) {
@@ -452,10 +452,10 @@ Node* findNthNodeFromEnd(SinglyLinkedList* singlyLinkedList, int n) {
 
 /**
  * @brief Find the nth node from the beginning of the list
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
  * @param int n
- * 
+ *
  * @return Node
  */
 Node* findNthNodeFromBeginning(SinglyLinkedList* singlyLinkedList, int n) {
@@ -482,9 +482,9 @@ Node* findNthNodeFromBeginning(SinglyLinkedList* singlyLinkedList, int n) {
 
 /**
  * @brief Find the nth node from the beginning of the list recursively
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
- * 
+ *
  * @return Node*
  */
 Node* findNthNodeFromBeginningRecursive(SinglyLinkedList* singlyLinkedList, int n) {
@@ -508,10 +508,10 @@ Node* findNthNodeFromBeginningRecursive(SinglyLinkedList* singlyLinkedList, int 
 
 /**
  * @brief Helper function for findNthNodeFromBeginningRecursive
- * 
+ *
  * @param Node* temp
  * @param int n
- * 
+ *
  * @return Node*
  */
 Node* findNthNodeFromBeginningRecursiveHelper(Node* temp, int n) {
@@ -523,10 +523,10 @@ Node* findNthNodeFromBeginningRecursiveHelper(Node* temp, int n) {
 
 /**
  * @brief Find the nth node from the end of the list recursively
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
  * @param int n
- * 
+ *
  * @return Node*
  */
 Node* findNthNodeFromEndRecursive(SinglyLinkedList* singlyLinkedList, int n) {
@@ -550,10 +550,10 @@ Node* findNthNodeFromEndRecursive(SinglyLinkedList* singlyLinkedList, int n) {
 
 /**
  * @brief Helper function for findNthNodeFromEndRecursive
- * 
+ *
  * @param Node* temp
  * @param int n
- * 
+ *
  * @return Node*
  */
 Node* findNthNodeFromEndRecursiveHelper(Node* temp, int n) {
@@ -565,9 +565,9 @@ Node* findNthNodeFromEndRecursiveHelper(Node* temp, int n) {
 
 /**
  * @brief Sort the list (ascending) using bubble sort algorithm O(n^2)
- * 
+ *
  * @param SinglyLinkedList* singlyLinkedList
- * 
+ *
  * @return void
  */
 void sortList(SinglyLinkedList* singlyLinkedList) {
@@ -593,7 +593,7 @@ void sortList(SinglyLinkedList* singlyLinkedList) {
 /**
  * @brief Free the list
  *
- * @param SinglyLinkedList* singlyLinkedList  
+ * @param SinglyLinkedList* singlyLinkedList
  *
  * @return void
  */
@@ -619,7 +619,7 @@ void freeList(SinglyLinkedList* singlyLinkedList) {
  * @param int argc
  * @param char** argv
  *
- * @return int 
+ * @return int
  */
 int main(int argc, char** argv) {
     // Create a new list
@@ -647,7 +647,7 @@ int main(int argc, char** argv) {
     insertAtIndex(singlyLinkedList, 9, 0);
     insertAtIndex(singlyLinkedList, 10, 5);
     insertAtIndex(singlyLinkedList, 11, 9);
-    
+ 
     // Print the list
     printList(singlyLinkedList);
 
