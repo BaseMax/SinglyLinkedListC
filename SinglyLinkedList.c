@@ -289,22 +289,6 @@ void reverseList(SinglyLinkedList* singlyLinkedList) {
 }
 
 /**
- * @brief Reverse the list recursively
- *
- * @param SinglyLinkedList* singlyLinkedList
- *
- * @return void
- */
-void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
-    if (singlyLinkedList->head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-    singlyLinkedList->tail = singlyLinkedList->head;
-    singlyLinkedList->head = reverseListRecursiveHelper(singlyLinkedList->head);
-}
-
-/**
  * @brief Helper function for reverseListRecursive
  *
  * @param Node* head
@@ -319,6 +303,22 @@ Node* reverseListRecursiveHelper(Node* head) {
     head->next->next = head;
     head->next = NULL;
     return newHead;
+}
+
+/**
+ * @brief Reverse the list recursively
+ *
+ * @param SinglyLinkedList* singlyLinkedList
+ *
+ * @return void
+ */
+void reverseListRecursive(SinglyLinkedList* singlyLinkedList) {
+    if (singlyLinkedList->head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    singlyLinkedList->tail = singlyLinkedList->head;
+    singlyLinkedList->head = reverseListRecursiveHelper(singlyLinkedList->head);
 }
 
 /**
@@ -343,6 +343,21 @@ Node* findMiddleNode(SinglyLinkedList* singlyLinkedList) {
 }
 
 /**
+ * @brief Helper function for findMiddleNodeRecursive
+ *
+ * @param Node* slow
+ * @param Node* fast
+ *
+ * @return Node*
+ */
+Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
+    if (fast == NULL || fast->next == NULL) {
+        return slow;
+    }
+    return findMiddleNodeRecursiveHelper(slow->next, fast->next->next);
+}
+
+/**
  * @brief Find the middle node of the list recursively
  *
  * @param SinglyLinkedList* singlyLinkedList
@@ -357,21 +372,6 @@ Node* findMiddleNodeRecursive(SinglyLinkedList* singlyLinkedList) {
     Node *slow = singlyLinkedList->head;
     Node *fast = singlyLinkedList->head;
     return findMiddleNodeRecursiveHelper(slow, fast);
-}
-
-/**
- * @brief Helper function for findMiddleNodeRecursive
- *
- * @param Node* slow
- * @param Node* fast
- *
- * @return Node*
- */
-Node* findMiddleNodeRecursiveHelper(Node* slow, Node* fast) {
-    if (fast == NULL || fast->next == NULL) {
-        return slow;
-    }
-    return findMiddleNodeRecursiveHelper(slow->next, fast->next->next);
 }
 
 /**
@@ -481,6 +481,21 @@ Node* findNthNodeFromBeginning(SinglyLinkedList* singlyLinkedList, int n) {
 }
 
 /**
+ * @brief Helper function for findNthNodeFromBeginningRecursive
+ *
+ * @param Node* temp
+ * @param int n
+ *
+ * @return Node*
+ */
+Node* findNthNodeFromBeginningRecursiveHelper(Node* temp, int n) {
+    if (n == 1) {
+        return temp;
+    }
+    return findNthNodeFromBeginningRecursiveHelper(temp->next, n - 1);
+}
+
+/**
  * @brief Find the nth node from the beginning of the list recursively
  *
  * @param SinglyLinkedList* singlyLinkedList
@@ -507,18 +522,18 @@ Node* findNthNodeFromBeginningRecursive(SinglyLinkedList* singlyLinkedList, int 
 }
 
 /**
- * @brief Helper function for findNthNodeFromBeginningRecursive
+ * @brief Helper function for findNthNodeFromEndRecursive
  *
  * @param Node* temp
  * @param int n
  *
  * @return Node*
  */
-Node* findNthNodeFromBeginningRecursiveHelper(Node* temp, int n) {
-    if (n == 1) {
+Node* findNthNodeFromEndRecursiveHelper(Node* temp, int n) {
+    if (n == 0) {
         return temp;
     }
-    return findNthNodeFromBeginningRecursiveHelper(temp->next, n - 1);
+    return findNthNodeFromEndRecursiveHelper(temp->next, n - 1);
 }
 
 /**
@@ -546,21 +561,6 @@ Node* findNthNodeFromEndRecursive(SinglyLinkedList* singlyLinkedList, int n) {
     }
     temp = singlyLinkedList->head;
     return findNthNodeFromEndRecursiveHelper(temp, length - n);
-}
-
-/**
- * @brief Helper function for findNthNodeFromEndRecursive
- *
- * @param Node* temp
- * @param int n
- *
- * @return Node*
- */
-Node* findNthNodeFromEndRecursiveHelper(Node* temp, int n) {
-    if (n == 0) {
-        return temp;
-    }
-    return findNthNodeFromEndRecursiveHelper(temp->next, n - 1);
 }
 
 /**
